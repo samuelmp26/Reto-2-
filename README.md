@@ -340,8 +340,8 @@ Artist --|> Person
 User *-- PlayHistory
 User *-- Playlist
 User *-- UserConfig
-UserConfig *-- Subscription
 
+UserConfig o-- Subscription
 Playlist o-- Song
 Album o-- Song
 Artist o-- Album
