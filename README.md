@@ -420,3 +420,35 @@ Playlist --|> Collection
 PlayHistory --|> Collection
 Genre --|> Collection
 ```
+### Relacion About Person-(User, Artist)
+```mermaid
+classDiagram
+class User {
+	    +string username
+	    +string profilePic
+	    +List~Playlist~ playlists
+	    +List~PlayHistory~ playHistory
+	    +share() ShareOptions
+    }
+class Person {
+	    +string name
+	    +string biography
+	    +date birthDate
+	    +string country
+	    +getInfo() List~string~
+    }
+class Artist {
+	    +string name
+	    +int monthlyListeners
+	    +string profilePic
+	    +string biography
+	    +List~Album~ albums
+	    +List~Song~ songs
+	    +play()
+	    +follow()
+	    +unfollow()
+	    +share() ShareOptions
+    }
+User --|> Person
+Artist --|> Person
+```
