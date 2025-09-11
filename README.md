@@ -329,7 +329,6 @@ direction TB
 	    +setRepeatMode()
 	    +setVolume(volume: int)
     }
-
 Album --|> Collection
 Playlist --|> Collection
 PlayHistory --|> Collection
