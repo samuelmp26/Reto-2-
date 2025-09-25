@@ -451,3 +451,47 @@ class Artist {
 User --|> Person
 Artist --|> Person
 ```
+# Relacion about User (Playhistory, Playlist, Userconfig)
+```mermaid
+    class PlayHistory {
+	    +List~Song~ songs
+	    +Song lastPlayed
+	    +List~date~ playDates
+	    +User user
+	    +getLastPlayed() Song
+	    +getHistory() List~Song~
+	    +clearHistory()
+    }
+    class UserConfig {
+	    +int soundQuality
+	    +string language
+	    +Theme theme
+	    +bool notifications
+	    +string downloadPath
+	    +setLanguage()
+	    +setTheme()
+	    +setAudioQuality()
+	    +toggleNotifications()
+	    +resetConfig()
+    }
+    class Playlist {
+	    +string name
+	    +string coverArt
+	    +string description
+	    +int duration
+	    +date creationDate
+	    +List~User~ owners
+	    +List~Song~ songs
+	    +play()
+	    +pause()
+	    +addSong(song: Song)
+	    +removeSong(song: Song)
+	    +shuffle()
+	    +download()
+	    +share() ShareOptions
+	    +setSongsOrder(orderOptions)
+    }
+User *-- PlayHistory
+User *-- Playlist
+User *-- UserConfig
+```
