@@ -452,29 +452,10 @@ class Artist {
 User --|> Person
 Artist --|> Person
 ```
-# Relacion about User (Playhistory, Playlist, Userconfig)
+### Relacion User (Playhistory, Userconfig, Playlist)
 ```mermaid
-    class PlayHistory {
-	    +List~Song~ songs
-	    +Song lastPlayed
-	    +List~date~ playDates
-	    +User user
-	    +getLastPlayed() Song
-	    +getHistory() List~Song~
-	    +clearHistory()
-    }
-    class UserConfig {
-	    +int soundQuality
-	    +string language
-	    +Theme theme
-	    +bool notifications
-	    +string downloadPath
-	    +setLanguage()
-	    +setTheme()
-	    +setAudioQuality()
-	    +toggleNotifications()
-	    +resetConfig()
-    }
+classDiagram
+direction TB
     class Playlist {
 	    +string name
 	    +string coverArt
@@ -491,6 +472,34 @@ Artist --|> Person
 	    +download()
 	    +share() ShareOptions
 	    +setSongsOrder(orderOptions)
+    }
+	class PlayHistory {
+   	 +List~Song~ songs
+    +Song lastPlayed
+    +List~date~ playDates
+    +User user
+    +getLastPlayed() Song
+    +getHistory() List~Song~
+    +clearHistory()
+}
+class User {
+    +string username
+    +string profilePic
+    +List~Playlist~ playlists
+    +List~PlayHistory~ playHistory
+    +share() ShareOptions
+}
+    class UserConfig {
+	    +int soundQuality
+	    +string language
+	    +Theme theme
+	    +bool notifications
+	    +string downloadPath
+	    +setLanguage()
+	    +setTheme()
+	    +setAudioQuality()
+	    +toggleNotifications()
+	    +resetConfig()
     }
 User *-- PlayHistory
 User *-- Playlist
