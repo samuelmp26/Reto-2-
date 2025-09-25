@@ -2,6 +2,7 @@
 Diagrama tipo UML con todas las clases
 ```mermaid
 classDiagram
+direction TB
 class Song {
     +string title
     +string coverArt
